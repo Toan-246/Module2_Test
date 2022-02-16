@@ -102,10 +102,19 @@ public class Main {
         System.out.println("---Xóa---");
         System.out.println("Nhập SĐT cần xóa");
         String phoneNum = scanner.nextLine();
+        String cofirm ;
         int index = contactManagement.findContactByphoneNum(phoneNum);
         if (index != -1) {
-            contactManagement.removeContract(phoneNum);
-            System.out.println("Xóa thành công");
+            System.out.println("Chọ Y để xóa ");
+            cofirm = scanner.nextLine();
+            if (cofirm.equals("Y")){
+                contactManagement.removeContract(phoneNum);
+                System.out.println("Xóa thành công");
+            }
+            else {
+                menu();
+            }
+
         } else {
             System.out.println("Danh bạ không có SĐT" + phoneNum);
         }
